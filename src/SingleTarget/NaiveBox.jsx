@@ -9,7 +9,7 @@ const style = {
     padding: '0.5rem 1rem',
     cursor: 'move',
 }
-export const Box = ({id, left, top, hideSourceOnDrag, children}) => {
+export const NaiveBox = ({id, left, top, hideSourceOnDrag, children}) => {
     const [{isDragging}, drag] = useDrag({
         item: {id, left, top, type: ItemTypes.BOX, action: 'move'},
         collect: (monitor) => ({

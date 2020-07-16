@@ -1,4 +1,4 @@
-import React,{useRef} from 'react'
+import React from 'react'
 import {useDrag} from 'react-dnd'
 import {ItemTypes} from './ItemTypes'
 
@@ -14,14 +14,7 @@ const style = {
 export const Box = ({name}) => {
 
     const [{isDragging}, drag] = useDrag({
-        item: {name, type: ItemTypes.BOX, left: 0, top: 0,action:'add'},
-        end: (item, monitor) => {
-            const dropResult = monitor.getDropResult();
-            console.log('itemOnDragSingle',item, dropResult);
-            if (item && dropResult) {
-                console.log(`You dropped ${item.name} into ${dropResult.name}!`)
-            }
-        },
+        item: {name, type: ItemTypes.BOX, left: 0, top: 0, action: 'add'},
         collect: (monitor) => ({
             isDragging: monitor.isDragging(),
         }),
